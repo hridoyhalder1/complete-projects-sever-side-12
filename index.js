@@ -45,7 +45,7 @@ async function run(){
         // bookings post
         app.post('/bookings', async(req, res) => {
             const booking = req.body;
-            console.log(booking);
+            
             const result = await bookingsCollection.insertOne(booking);
             res.send(result);
         });
@@ -53,6 +53,7 @@ async function run(){
         // users
         app.post('/users', async(req, res) => {
             const user = req.body;
+            console.log(user);
             const result = await usersCollection.insertOne(user);
             res.send(result);
         })
