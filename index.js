@@ -32,6 +32,13 @@ async function run(){
             res.send(products);
         });
 
+        app.get('/bookings', async(req, res ) => {
+            const email = req.body.email;
+            const query = { email: email };
+            const bookings = await bookingsCollection.find(query).toArray();
+            res.send(bookings);
+        })
+
         // bookings post
         app.post('/bookings', async(req, res) => {
             const booking = req.body;
